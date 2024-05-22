@@ -2,8 +2,9 @@
 import express from 'express';
 import cors from 'cors';
 import { database } from './database/database.js';
-import { readdirSync } from 'fs';
+// import { readdirSync } from 'fs';
 import dotenv from 'dotenv';
+import transactionRoutes from './routes/transactions.js';
 
 // Завантажуємо змінні з файлу .env
 dotenv.config();
@@ -19,11 +20,13 @@ app.use(express.json()); // Парсер JSON для вхідних запиті
 app.use(cors()); // Включаємо CORS для всіх запитів
 
 // Підключаємо всі маршрути з папки './routes'
-readdirSync('./routes').map((route) => {
-  import(`./routes/${route}`).then((routeModule) => {
-    app.use('/api/v1', routeModule.default); // Використовуємо маршрут з префіксом '/api/v1'
-  });
-});
+// readdirSync('./routes').map((route) => {
+//   import(`./routes/${route}`).then((routeModule) => {
+//     app.use('/api/v1', routeModule.default); // Використовуємо маршрут з префіксом '/api/v1'
+//   });
+// });
+// Підключаємо маршрути авторизації та обробки транзакцій
+app.use('/api/v1', transactionRoutes);
 
 // Функція для запуску сервера
 const server = () => {

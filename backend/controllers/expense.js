@@ -55,3 +55,28 @@ export const deleteExpense = async (req, res) => {
             res.status(500).json({ message: 'Помилка сервера' });
         });
 };
+
+// Функція для редагування витрати
+export const updateExpense = async (req, res) => {
+    const { id } = req.params;
+    const { title, amount, category, description, date } = req.body;
+  
+    try {
+      const expense = await ExpenseSchema.findById(id);
+  
+      if (!expense) {
+        return res.status(404).json({ message: 'Витрата не знайдена' });
+      }
+  
+      expense.title = title;
+      expense.amount = amount;
+      expense.category = category;
+      expense.description = description;
+      expense.date = date;
+  
+      await expense.save();
+      res.status(200).json({ message: 'Витрата оновлена' });
+    } catch (error) {
+      res.status(500).json({ message: 'Помилка сервера' });
+    }
+  };

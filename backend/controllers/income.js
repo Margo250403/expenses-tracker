@@ -29,8 +29,6 @@ export const addIncome = async (req, res) => {
     } catch (error) {
         res.status(500).json({ message: 'Помилка сервера' });
     }
-
-
     
     // Виводимо дані доходу в консоль
     console.log(income);
@@ -58,3 +56,28 @@ export const deleteIncome = async (req, res) => {
             res.status(500).json({ message: 'Помилка сервера' });
         });
 };
+
+// Функція для редагування доходу
+export const updateIncome = async (req, res) => {
+    const { id } = req.params;
+    const { title, amount, category, description, date } = req.body;
+  
+    try {
+      const income = await IncomeSchema.findById(id);
+  
+      if (!income) {
+        return res.status(404).json({ message: 'Дохід не знайдений' });
+      }
+  
+      income.title = title;
+      income.amount = amount;
+      income.category = category;
+      income.description = description;
+      income.date = date;
+  
+      await income.save();
+      res.status(200).json({ message: 'Дохід оновлено' });
+    } catch (error) {
+      res.status(500).json({ message: 'Помилка сервера' });
+    }
+  };
