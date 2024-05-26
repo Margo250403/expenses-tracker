@@ -26,12 +26,12 @@ const RegisterForm: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             <div className="modal-content">
                 <span className="close" onClick={onClose}>&times;</span>
                 <form onSubmit={handleRegister}>
-                    <h2>Register</h2>
+                    <h2>Створити профіль</h2>
                     {error && <p className="error">{error}</p>}
-                    <input type="text" placeholder="Enter your username" value={username} onChange={(e) => setUsername(e.target.value)} required />
-                    <input type="email" placeholder="Enter your email address" value={email} onChange={(e) => setEmail(e.target.value)} required />
-                    <input type="password" placeholder="Enter your Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-                    <button type="submit">Register</button>
+                    <input type="text" placeholder="Введіть username" value={username} onChange={(e) => setUsername(e.target.value)} required />
+                    <input type="email" placeholder="Введіть свій email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    <input type="password" placeholder="Введіть свій пароль" value={password} onChange={(e) => setPassword(e.target.value)} required />
+                    <button type="submit">Зареєструватись</button>
                 </form>
             </div>
         </div>

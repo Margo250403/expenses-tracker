@@ -1,5 +1,5 @@
 import { IMenuItem } from '../interfaces/IMenuItem';
-import { dashboard, expenses, transactions, trend } from './icons';
+import { dashboard, expenses, trend } from './icons';
 
 export const menuItems: IMenuItem[] = [
     {
@@ -8,12 +8,12 @@ export const menuItems: IMenuItem[] = [
         icon: dashboard,
         link: '/dashboard',
     },
-    {
-        id: 2,
-        title: "View Transactions",
-        icon: transactions,
-        link: "/dashboard",
-    },
+    // {
+    //     id: 2,
+    //     title: "View Transactions",
+    //     icon: transactions,
+    //     link: "/dashboard",
+    // },
     {
         id: 3,
         title: "Incomes",

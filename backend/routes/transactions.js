@@ -1,7 +1,7 @@
 // Імпортуємо необхідні модулі з express та контролери для обробки доходів і витрат
 import express from 'express';
 import { check } from 'express-validator';
-import { register, login, getUser } from '../controllers/auth.js';
+import { register, login, getUser, logout } from '../controllers/auth.js';
 import authMiddleware from '../middleware/authMiddleware.js';
 import { Router } from 'express';
 import { addExpense, getExpense, deleteExpense, updateExpense } from '../controllers/expense.js';
@@ -39,6 +39,7 @@ router.post('/add-income', addIncome)
   // Маршрут для видалення витрат за ідентифікатором
   .delete('/delete-expense/:id', deleteExpense)
   // Маршрут для зміни витрат за ідентифікатором
-  .put('/update-expense/:id', updateExpense);
-  
+  .put('/update-expense/:id', updateExpense)
+  // Вихід користувача з системи
+  .post('/logout', logout);
 export default router;

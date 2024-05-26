@@ -76,6 +76,7 @@ export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ childr
             setError(err.response.data.message);
         }
     };
+    
     const totalExpenses = () => {
         return expenses.reduce((acc, expense) => acc + expense.amount, 0);
     };
@@ -124,6 +125,15 @@ export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         }
     };
 
+    const logoutUser = async () => {
+            try {
+                await axios.post(`${BASE_URL}logout`);
+                setUser(null);
+            } catch (err: any) {
+                setError(err.response.data.message);
+            }
+        };
+        
     return (
         <GlobalContext.Provider
             value={{
@@ -146,7 +156,8 @@ export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ childr
                 user,
                 registerUser,
                 loginUser,
-                getUser
+                getUser,
+                logoutUser,
             }}
         >
             {children}

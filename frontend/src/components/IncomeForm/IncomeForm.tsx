@@ -78,6 +78,7 @@ const IncomeForm: React.FC = () => {
             </div>
             <div className="input-control">
                 <DatePicker
+                    className='input-date'
                     id='date'
                     placeholderText='Enter A Date'
                     selected={date}

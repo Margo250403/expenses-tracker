@@ -5,7 +5,7 @@ import Button from '../Button/Button';
 import '../../styles/IncomeItem.scss';
 import { IIncomeItemProps } from '../../interfaces/IIncomeItemProps';
 
-const IncomeItem: React.FC<IIncomeItemProps> = ({
+const Item: React.FC<IIncomeItemProps> = ({
     _id,
     title,
     amount,
@@ -82,7 +82,7 @@ const IncomeItem: React.FC<IIncomeItemProps> = ({
     console.log('type', type);
 
     return (
-        <div className="income-item" style={{ borderColor: indicatorColor }}>
+        <div className="item" style={{ borderColor: indicatorColor }}>
             <div className="icon">
                 {type === 'expense' ? expenseCatIcon() : categoryIcon()}
             </div>
@@ -121,4 +121,4 @@ const IncomeItem: React.FC<IIncomeItemProps> = ({
     );
 };
 
-export default IncomeItem;
+export default Item;

@@ -1,17 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import avatar from '../../img/avatar.png';
 import { signout } from '../../utils/icons';
 import { menuItems } from '../../utils/menuItems';
 import '../../styles/Navigation.scss';
 import { INavigationProps } from '../../interfaces/INavigationProps';
+import { GlobalContext } from '../../context/globalContext';
+import { useNavigate } from 'react-router-dom';
 
 const Navigation: React.FC<INavigationProps> = ({ active, setActive }) => {
+  const globalContext = useContext(GlobalContext);
+  const navigate = useNavigate();
+
+  if (!globalContext || !globalContext.user) {
+    return <div>Loading...</div>;
+  }
+
+  const { logoutUser } = globalContext;
+
+  const handleLogout = async () => {
+    await logoutUser();
+    navigate('/login');
+  };
+
   return (
     <nav className="nav">
       <div className="user-con">
         <img src={avatar} alt="User Avatar" />
         <div className="text">
-          <h2>Marharyta</h2>
+        <h2>Marharyta</h2>
           <p>Your Money</p>
         </div>
       </div>
@@ -28,7 +44,7 @@ const Navigation: React.FC<INavigationProps> = ({ active, setActive }) => {
         ))}
       </ul>
       <div className="bottom-nav">
-        <li>
+        <li onClick={handleLogout}>
           {signout} Sign Out
         </li>
       </div>

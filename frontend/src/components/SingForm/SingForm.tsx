@@ -33,14 +33,14 @@ const SignInForm: FC<ISignFormProps> = ({
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="Введіть свій email"
+                    placeholder="Enter your email"
                     value={email}
                     onChange={handleEmailChange}
                 />
             </div>
             <div className="input-box">
                 <label className="input-box__info" htmlFor="password">
-                    Пароль
+                    Password
                 </label>
                 <label className="input-box__icon" htmlFor="password">
                     <img src={passwordImg} alt="password" />
@@ -49,14 +49,14 @@ const SignInForm: FC<ISignFormProps> = ({
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Введіть свій пароль"
+                    placeholder="Enter your password"
                     value={password}
                     onChange={handlePasswordChange}
                 />
             </div>
             <div className="btn-box">
                 <button type="button" onClick={onLogin}>
-                    Увійти
+                    Login
                 </button>
             </div>
         </form>

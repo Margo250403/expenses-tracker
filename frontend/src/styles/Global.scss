@@ -16,7 +16,7 @@
     --color-delete: #d84949;
 }
 
-body {
+body, textarea {
     font-family: 'Nunito', sans-serif;
     font-size: clamp(1rem, 1.5vw, 1.2rem);
     overflow: hidden;
@@ -53,6 +53,6 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 20px #eed9f1 inset !important; /* фоновий колір */
+    -webkit-box-shadow: 0 0 0 50px #eed9f1 inset !important; /* фоновий колір */
     -webkit-text-fill-color: #000000 !important; /* колір тексту */
 }

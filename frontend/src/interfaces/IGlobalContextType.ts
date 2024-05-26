@@ -23,4 +23,5 @@ export interface IGlobalContextType {
   registerUser: (userData: { username: string; email: string; password: string }) => Promise<boolean>;
   loginUser: (userData: { email: string; password: string }) => Promise<boolean>;
   getUser: () => Promise<void>;
+  logoutUser: () => Promise<void>;
 }

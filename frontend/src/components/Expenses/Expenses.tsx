@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../hooks/useGlobalContext';
 import  '../../styles/Layouts.scss';
-import IncomeItem from '../IncomeItem/IncomeItem';
 import ExpenseForm from '../ExpensesForm/ExpensesForm';
 import '../../styles/Expenses.scss';
+import Item from '../Item/Item';
 
 const Expenses: React.FC = () => {
   const { addExpense, expenses, updateExpense, getExpenses, deleteExpense, totalExpenses } = useGlobalContext();
@@ -27,7 +27,7 @@ const Expenses: React.FC = () => {
             {expenses.map((income) => {
               const { _id, title, amount, date, category, description, type } = income;
               return (
-                <IncomeItem
+                <Item
                   key={_id}
                   _id={_id}
                   title={title}
@@ -39,7 +39,7 @@ const Expenses: React.FC = () => {
                   category={category}
                   indicatorColor="var(--color-delete)"
                   deleteItem={deleteExpense}
-                  updatedExpense={updateExpense}
+                  // updatedExpense={updateExpense}
                 />
               );
             })}

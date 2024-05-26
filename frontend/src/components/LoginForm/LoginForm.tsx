@@ -17,7 +17,7 @@ const LoginForm: React.FC = () => {
     return <div>Loading...</div>;
   }
 
-  const { loginUser, registerUser } = globalContext;
+  const { loginUser } = globalContext;
   const handleLogin = async () => {
     try {
       await loginUser({ email, password });
@@ -40,9 +40,9 @@ const handleRegisterClose = () => {
     <div className="container">
       <section className="form">
         <div className="form-content">
-          <h1 className="form-title">Увійти</h1>
+          <h1 className="form-title">Sign in</h1>
           <p className="form-subtitle">
-          Якщо у вас немає облікового запису, ви можете <a href="#" onClick={handleRegisterOpen}>Зареєструватися тут!</a>
+          If tou don`t have an account register, you can <a href="#" onClick={handleRegisterOpen}>Register here!</a>
           </p>
           <SignInForm
             email={email}
@@ -50,7 +50,6 @@ const handleRegisterClose = () => {
             password={password}
             setPassword={setPassword}
             onLogin={handleLogin}
-            onRegister={handleRegisterOpen}
           />
         </div>
       </section>
@@ -60,7 +59,7 @@ const handleRegisterClose = () => {
           <div className="promo__content">
             <img src={promoImg} alt="promo" className="promo__image" />
           </div>
-          <h2 className="promo__title">Ласкаво просимо на цю сторінку!</h2>
+          <h2 className="promo__title">Welcome to this page!</h2>
         </div>
       </section>
     </div>

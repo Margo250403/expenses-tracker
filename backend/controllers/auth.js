@@ -27,7 +27,7 @@ export const register = async (req, res) => {
 
     const payload = { user: { id: user.id } };
 
-    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '10h' }, (err, token) => {
+    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
       if (err) throw err;
       res.json({ token });
     });
@@ -59,7 +59,7 @@ export const login = async (req, res) => {
 
     const payload = { user: { id: user.id } };
 
-    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '10h' }, (err, token) => {
+    jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' }, (err, token) => {
       if (err) throw err;
       res.json({ token });
     });
@@ -74,6 +74,16 @@ export const getUser = async (req, res) => {
   try {
     const user = await User.findById(req.user.id).select('-password');
     res.json(user);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Помилка сервера');
+  }
+};
+
+export const logout = async (req, res) => {
+  try {
+    res.clearCookie('refreshToken');
+    res.json({ msg: 'Вихід успішний' });
   } catch (err) {
     console.error(err.message);
     res.status(500).send('Помилка сервера');

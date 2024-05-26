@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../hooks/useGlobalContext';
 import IncomeForm from '../IncomeForm/IncomeForm';
-import IncomeItem from '../IncomeItem/IncomeItem';
 import { IIncomeItemProps } from '../../interfaces/IIncomeItemProps';
 import '../../styles/Income.scss';
+import Item from '../Item/Item';
 
 const Income: React.FC = () => {
   const { addIncome, incomes, getIncomes, deleteIncome, totalIncome } = useGlobalContext();
@@ -27,7 +27,7 @@ const Income: React.FC = () => {
             {incomes.map((income: IIncomeItemProps) => {
               const { _id, title, amount, date, category, description, type } = income;
               return (
-                <IncomeItem
+                <Item
                   key={_id}
                   _id={_id}
                   title={title}
