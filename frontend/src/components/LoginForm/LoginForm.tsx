@@ -4,10 +4,12 @@ import { GlobalContext } from '../../context/globalContext';
 import SignInForm from '../SingForm/SingForm';
 import '../../styles/LoginForm.scss';
 import promoImg from '../../img/promo.svg';
+import RegisterForm from '../RegistrationForm/RegistrationForm';
 
 const LoginForm: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
+  const [showRegister, setShowRegister] = useState<boolean>(false);
   const globalContext = useContext(GlobalContext);
   const navigate = useNavigate();
 
@@ -25,14 +27,14 @@ const LoginForm: React.FC = () => {
     }
   };
 
-  const handleRegister = async () => {
-    try {
-      await registerUser({ username: email, email, password });
-      navigate('/dashboard');
-    } catch (err) {
-      console.error('Registration failed', err);
-    }
-  };
+  const handleRegisterOpen = () => {
+    setShowRegister(true);
+};
+
+const handleRegisterClose = () => {
+    setShowRegister(false);
+};
+
 
   return (
     <div className="container">
@@ -40,7 +42,7 @@ const LoginForm: React.FC = () => {
         <div className="form-content">
           <h1 className="form-title">Увійти</h1>
           <p className="form-subtitle">
-          Якщо у вас немає облікового запису, ви можете <a href="#">Зареєструватися тут!</a>
+          Якщо у вас немає облікового запису, ви можете <a href="#" onClick={handleRegisterOpen}>Зареєструватися тут!</a>
           </p>
           <SignInForm
             email={email}
@@ -48,10 +50,11 @@ const LoginForm: React.FC = () => {
             password={password}
             setPassword={setPassword}
             onLogin={handleLogin}
-            onRegister={handleRegister}
+            onRegister={handleRegisterOpen}
           />
         </div>
       </section>
+      {showRegister && <RegisterForm onClose={handleRegisterClose} />}
       <section className="promo">
         <div className="promo-box">
           <div className="promo__content">

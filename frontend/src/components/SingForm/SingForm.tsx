@@ -11,7 +11,6 @@ const SignInForm: FC<ISignFormProps> = ({
     password,
     setPassword,
     onLogin,
-    onRegister,
 }) => {
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);

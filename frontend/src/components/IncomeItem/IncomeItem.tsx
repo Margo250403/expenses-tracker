@@ -13,25 +13,25 @@ const IncomeItem: React.FC<IIncomeItemProps> = ({
     category,
     description,
     deleteItem,
-    updateExpense,
+    // updateExpense,
     indicatorColor,
     type, 
     createdAt
 }) => {
 
-    const handleUpdate = () => {
-        const updatedExpense = {
-          _id,
-          title,
-          amount,
-          date,
-          category,
-          description,
-          type,
-          createdAt
-        };
-        updateExpense(_id, updatedExpense); // виклик функції оновлення
-      };
+    // const handleUpdate = () => {
+    //     const updatedExpense = {
+    //       _id,
+    //       title,
+    //       amount,
+    //       date,
+    //       category,
+    //       description,
+    //       type,
+    //       createdAt
+    //     };
+    //     updateExpense(_id, updatedExpense); // виклик функції оновлення
+    //   };
 
     const categoryIcon = () => {
         switch (category) {
@@ -98,14 +98,14 @@ const IncomeItem: React.FC<IIncomeItemProps> = ({
                         </p>
                     </div>
                     <div className="btn-con">
-                    <Button
+                    {/* <Button
                             bPad={'1rem'}
                             bRad={'50%'}
                             bg={'var(--primary-color'}
                             color={'#fff'}
                             // icon={trash}
                             onClick={handleUpdate => updateExpense(_id)} name={''} 
-                    />
+                    /> */}
                     <Button
                             bPad={'1rem'}
                             bRad={'50%'}
