@@ -4,10 +4,11 @@ import "react-datepicker/dist/react-datepicker.css";
 import { useGlobalContext } from '../../hooks/useGlobalContext';
 import Button from '../Button/Button';
 import { plus } from '../../utils/icons';
+import '../../styles/IncomeForm.scss';
 import { IInputState } from '../../interfaces/IInputState';
 import { IIncomeItemProps } from '../../interfaces/IIncomeItemProps';
 
-const Form: React.FC = () => {
+const IncomeForm: React.FC = () => {
     const { addIncome, error, setError } = useGlobalContext();
     const [inputState, setInputState] = useState<IInputState>({
         title: '',
@@ -28,13 +29,13 @@ const Form: React.FC = () => {
         e.preventDefault();
         if (date) {
             const incomeData: IIncomeItemProps = {
-                _id: '', // Assign a real ID when integrating with backend
+                _id: '',
                 title,
                 amount: parseFloat(amount),
                 date,
                 category,
                 description,
-                type: '', // Or determine based on the form
+                type: '',
                 createdAt: new Date(),
                 deleteItem: function (id: string): void {
                     throw new Error('Function not implemented.');
@@ -55,9 +56,9 @@ const Form: React.FC = () => {
     };
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
-             {error && <p className="error">{error}</p>}
-            <div className="inputControl">
+        <form className="income-form" onSubmit={handleSubmit}>
+            {error && <p className="error">{error}</p>}
+            <div className="input-control">
                 <input
                     type="text"
                     value={title}
@@ -66,7 +67,7 @@ const Form: React.FC = () => {
                     onChange={handleInput('title')}
                 />
             </div>
-            <div className="inputControl">
+            <div className="input-control">
                 <input
                     value={amount}
                     type="text"
@@ -75,7 +76,7 @@ const Form: React.FC = () => {
                     onChange={handleInput('amount')}
                 />
             </div>
-            <div className="inputControl">
+            <div className="input-control">
                 <DatePicker
                     id='date'
                     placeholderText='Enter A Date'
@@ -86,7 +87,7 @@ const Form: React.FC = () => {
                     }}
                 />
             </div>
-            <div className={`${"selects"} ${"inputControl"}`}>
+            <div className={`${"selects"} ${"input-control"}`}>
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value="" disabled>Select Option</option>
                     <option value="salary">Salary</option>
@@ -95,11 +96,11 @@ const Form: React.FC = () => {
                     <option value="stocks">Stocks</option>
                     <option value="bitcoin">Bitcoin</option>
                     <option value="bank">Bank Transfer</option>
-                    <option value="youtube">YouTube</option>
+                    <option value="bank">Stipend</option>
                     <option value="other">Other</option>
                 </select>
             </div>
-            <div className="inputControl">
+            <div className="input-control">
                 <textarea
                     name="description"
                     value={description}
@@ -109,7 +110,7 @@ const Form: React.FC = () => {
                     rows={4}
                     onChange={handleInput('description')}
                 ></textarea>
-            </div> 
+            </div>
             <div className="submitBtn">
                 <Button
                     name={'Add Income'}
@@ -120,8 +121,8 @@ const Form: React.FC = () => {
                     color={'#fff'}
                 />
             </div>
-       </form>
+        </form>
     );
 };
 
-export default Form;
+export default IncomeForm;

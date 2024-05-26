@@ -1,40 +1,27 @@
-import './styles/Layouts.scss';
-import './styles/App.scss';
-import Orb from './components/Orb/Orb';
-import { useMemo, useState } from 'react';
-import Navigation from './components/Navigation/Navigation';
-import Dashboard from './components/Dashboard/Dashboard';
-import Income from './components/Income/Income';
-import Expenses from './components/Expenses/Expenses';
- 
+import './styles/Global.scss';
+import LoginForm from './components/LoginForm/LoginForm';
+import { useContext } from 'react';
+import { GlobalContext } from './context/globalContext';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import HomePage from './pages/HomePage';
 
 function App() {
-  const [active, setActive] = useState<number>(1);
-  const displayData = () => {
-    switch(active){
-      case 1:
-        return <Dashboard />
-      case 2:
-        return <Dashboard />
-      case 3:
-        return <Income />
-      case 4: 
-        return <Expenses />
-      default: 
-        return <Dashboard />
-    }
+  const globalContext = useContext(GlobalContext);
+
+  if (!globalContext) {
+    return <div>Loading...</div>;
   }
-  const orbMemo = useMemo(() => {
-    return <Orb />
-  },[])
-  
+
+  const { user } = globalContext;
   return (
     <div className="App">
-      {orbMemo}
-      <div className="main-layout">
-        <Navigation active={active} setActive={setActive} />
-        <main>{displayData()}</main>
-      </div>
+      <Router>
+        <Routes>
+          <Route path="/login" element={<LoginForm />} />
+          <Route path="/home" element={user ? <HomePage /> : <Navigate to="/login" />} />
+          <Route path="*" element={<Navigate to={user ? "/home" : "/login"} />} />
+        </Routes>
+      </Router>
     </div>
   );
 }

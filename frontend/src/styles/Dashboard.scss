@@ -6,7 +6,7 @@
 
         .chart-con {
             grid-column: 1 / 4;
-            height: 400px;
+            height: 420px;
 
             .amount-con {
                 display: grid;
@@ -17,17 +17,39 @@
                 .income, .expense {
                     grid-column: span 2;
                 }
+                
+                .income, .expense {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                }
 
                 .income, .expense, .balance {
                     background: #FCF6F9;
                     border: 2px solid #FFFFFF;
                     box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
                     border-radius: 20px;
-                    padding: 1rem;
+                    padding: 0.8rem;
+                    font-size: 1.2rem; 
 
                     p {
                         font-size: 3.5rem;
                         font-weight: 700;
+                    }
+                }
+
+                .income {
+                    p {
+                        color: var(--color-green);
+                        opacity: 0.8;
+                    }
+                }
+
+                .expense {
+                    p {
+                        color: var(--color-delete);
+                        opacity: 0.8;
                     }
                 }
 
@@ -39,9 +61,8 @@
                     align-items: center;
 
                     p {
-                        color: var(--color-green);
-                        opacity: 0.6;
-                        font-size: 4.5rem;
+                        color: var(--primary-color);
+                        opacity: 0.7;
                     }
                 }
             }
@@ -59,7 +80,6 @@
 
             .salary-title {
                 font-size: 1.2rem;
-
                 span {
                     font-size: 1.8rem;
                 }

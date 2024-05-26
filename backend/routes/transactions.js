@@ -31,7 +31,7 @@ router.post('/add-income', addIncome)
   // Маршрут для видалення доходу за ідентифікатором
   .delete('/delete-income/:id', deleteIncome)
   // Маршрут для редагування витрат
-  .patch('/update-income/:id', updateIncome)
+  .put('/update-income/:id', updateIncome)
   // Маршрут для додавання витрат
   .post('/add-expense', addExpense)
   // Маршрут для отримання всіх витрат
@@ -40,4 +40,5 @@ router.post('/add-income', addIncome)
   .delete('/delete-expense/:id', deleteExpense)
   // Маршрут для зміни витрат за ідентифікатором
   .put('/update-expense/:id', updateExpense);
+  
 export default router;

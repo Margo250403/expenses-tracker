@@ -25,6 +25,7 @@ app.use(cors()); // Включаємо CORS для всіх запитів
 //     app.use('/api/v1', routeModule.default); // Використовуємо маршрут з префіксом '/api/v1'
 //   });
 // });
+
 // Підключаємо маршрути авторизації та обробки транзакцій
 app.use('/api/v1', transactionRoutes);
 

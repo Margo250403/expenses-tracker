@@ -1,6 +1,5 @@
 import React from 'react';
-// import {avatar} from '../../img/avatar.png';
-// import avatar from '../../img/avatar.png';
+import avatar from '../../img/avatar.png';
 import { signout } from '../../utils/icons';
 import { menuItems } from '../../utils/menuItems';
 import '../../styles/Navigation.scss';
@@ -10,7 +9,7 @@ const Navigation: React.FC<INavigationProps> = ({ active, setActive }) => {
   return (
     <nav className="nav">
       <div className="user-con">
-        <img src='../../img/avatar.png' alt="User Avatar" />
+        <img src={avatar} alt="User Avatar" />
         <div className="text">
           <h2>Marharyta</h2>
           <p>Your Money</p>

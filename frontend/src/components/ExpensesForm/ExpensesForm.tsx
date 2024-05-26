@@ -29,13 +29,13 @@ const ExpensesForm: React.FC = () => {
         e.preventDefault();
         if (date) {
             const excomeData: IExpense = {
-                _id: '', // Assign a real ID when integrating with backend
+                _id: '', 
                 title,
                 amount: parseFloat(amount),
                 date,
                 category,
                 description,
-                type: '', // Or determine based on the form
+                type: '', 
                 createdAt: new Date(),
             };
             addExpense(excomeData);
@@ -53,9 +53,9 @@ const ExpensesForm: React.FC = () => {
     };
 
     return (
-        <form className="form" onSubmit={handleSubmit}>
+        <form className="expense-form" onSubmit={handleSubmit}>
             {error && <p className="error">{error}</p>}
-            <div className="inputControl">
+            <div className="input-control">
                 <input
                     type="text"
                     value={title}
@@ -64,7 +64,7 @@ const ExpensesForm: React.FC = () => {
                     onChange={handleInput('title')}
                 />
             </div>
-            <div className="inputControl">
+            <div className="input-control">
                 <input
                     value={amount}
                     type="text"
@@ -73,7 +73,7 @@ const ExpensesForm: React.FC = () => {
                     onChange={handleInput('amount')}
                 />
             </div>
-            <div className="inputControl">
+            <div className="input-control">
                 <DatePicker
                     id='date'
                     placeholderText='Enter A Date'
@@ -84,7 +84,7 @@ const ExpensesForm: React.FC = () => {
                     }}
                 />
             </div>
-            <div className={`${"selects"} ${"inputControl"}`}>
+            <div className={`${"selects"} ${"input-control"}`}>
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
                     <option value="" disabled>Select Option</option>
                     <option value="education">Education</option>
@@ -97,7 +97,7 @@ const ExpensesForm: React.FC = () => {
                     <option value="other">Other</option>
                 </select>
             </div>
-            <div className="inputControl">
+            <div className="input-control">
                 <textarea
                     name="description"
                     value={description}

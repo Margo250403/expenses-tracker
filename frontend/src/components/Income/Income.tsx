@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useGlobalContext } from '../../hooks/useGlobalContext';
-import Form from '../Form/Form';
+import IncomeForm from '../IncomeForm/IncomeForm';
 import IncomeItem from '../IncomeItem/IncomeItem';
 import { IIncomeItemProps } from '../../interfaces/IIncomeItemProps';
 import '../../styles/Income.scss';
@@ -17,11 +17,11 @@ const Income: React.FC = () => {
       <div className="inner-layout">
         <h1>Incomes</h1>
         <h2 className="total-income">
-          Total Income: <span>${totalIncome()}</span>
+          Total Income: <span>${totalIncome().toFixed(2)}</span>
         </h2>
         <div className="income-content">
           <div className="form-container">
-            <Form />
+            <IncomeForm />
           </div>
           <div className="incomes">
             {incomes.map((income: IIncomeItemProps) => {
