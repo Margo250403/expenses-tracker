@@ -1,6 +1,6 @@
 import React from 'react';
 import { dateFormat } from '../../utils/dateFormat';
-import { bitcoin, book, calender, cardIcon, circle, clothing, comment, dollar, medical, money, piggy, takeaway, trash, tv, users, yt } from '../../utils/icons';
+import { bitcoin, book, calender, cardIcon, circle, clothing, comment, dollar, medical, money, piggy, takeaway, trash, tv, users, yt, stocks, freelance, food } from '../../utils/icons';
 import Button from '../Button/Button';
 import '../../styles/IncomeItem.scss';
 import { IIncomeItemProps } from '../../interfaces/IIncomeItemProps';
@@ -13,7 +13,7 @@ const Item: React.FC<IIncomeItemProps> = ({
     category,
     description,
     deleteItem,
-    // updateExpense,
+    // updateItem,
     indicatorColor,
     type, 
     createdAt
@@ -37,10 +37,10 @@ const Item: React.FC<IIncomeItemProps> = ({
         switch (category) {
             case 'salary':
                 return money;
-            // case 'freelancing':
-            //     return freelance;
-            // case 'investments':
-            //     return stocks;
+            case 'freelancing':
+                return freelance;
+            case 'investments':
+                return stocks;
             case 'stocks':
                 return users;
             case 'bitcoin':
@@ -60,8 +60,8 @@ const Item: React.FC<IIncomeItemProps> = ({
         switch (category) {
             case 'education':
                 return book;
-            // case 'groceries':
-            //     return food;
+            case 'groceries':
+                return food;
             case 'health':
                 return medical;
             case 'subscriptions':
@@ -70,8 +70,8 @@ const Item: React.FC<IIncomeItemProps> = ({
                 return takeaway;
             case 'clothing':
                 return clothing;
-            // case 'travelling':
-            //     return freelance;
+            case 'travelling':
+                return freelance;
             case 'other':
                 return circle;
             default:
@@ -103,8 +103,8 @@ const Item: React.FC<IIncomeItemProps> = ({
                             bRad={'50%'}
                             bg={'var(--primary-color'}
                             color={'#fff'}
-                            // icon={trash}
-                            onClick={handleUpdate => updateExpense(_id)} name={''} 
+                            icon={trash}
+                            onClick={() => deleteItem(_id)} name={''} 
                     /> */}
                     <Button
                             bPad={'1rem'}

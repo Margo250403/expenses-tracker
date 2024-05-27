@@ -17,12 +17,12 @@ import {
   FaComment, 
   FaPlus, 
   FaTrash, 
-  // FaEarthAmericas, 
-  // FaArrowTrendUp, 
+  FaGlobeAmericas,
+  FaArrowUp, 
   FaUtensils, 
   FaTshirt, 
   FaBook, 
-  // FaBowlFood, 
+  FaConciergeBell, 
   FaBriefcaseMedical, 
   FaTv, 
   FaCircle 
@@ -37,8 +37,8 @@ export const logout = <FaSignOutAlt />;
 export const trend = <FaMoneyBillWave />;
 export const expenses = <FaMoneyCheckAlt />;
 export const money = <FaMoneyBillWave />;
-// export const freelance = <FaEarthAmericas />;
-// export const stocks = <FaArrowTrendUp />;
+export const freelance = <FaGlobeAmericas />;
+export const stocks = <FaArrowUp />;
 export const bitcoin = <FaBitcoin />;
 export const piggy = <FaPiggyBank />;
 export const yt = <FaYoutube />;
@@ -53,7 +53,7 @@ export const signout = <FaSignOutAlt />;
 export const takeaway = <FaUtensils />;
 export const clothing = <FaTshirt />;
 export const book = <FaBook />;
-// export const food = <FaBowlFood />;
+export const food = <FaConciergeBell />;
 export const medical = <FaBriefcaseMedical />;
 export const tv = <FaTv />;
 export const circle = <FaCircle />;

@@ -39,7 +39,7 @@ const Expenses: React.FC = () => {
                   category={category}
                   indicatorColor="var(--color-delete)"
                   deleteItem={deleteExpense}
-                  // updatedExpense={updateExpense}
+                  // updateItem={updateExpense}
                 />
               );
             })}
