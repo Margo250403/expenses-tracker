@@ -38,7 +38,7 @@ const IncomeForm: React.FC = () => {
                 type: '',
                 createdAt: new Date(),
                 deleteItem: function (id: string): void {
-                    throw new Error('Function not implemented.');
+                    throw new Error('Функція не реалізована');
                 },
                 indicatorColor: ''
             };
@@ -51,19 +51,19 @@ const IncomeForm: React.FC = () => {
                 description: '',
             });
         } else {
-            setError('Please select a date.');
+            setError('Введіть дату');
         }
     };
 
     return (
         <form className="income-form" onSubmit={handleSubmit}>
-            {error && <p className="error">{error}</p>}
+            {error && <p className="error-income">{error}</p>}
             <div className="input-control">
                 <input
                     type="text"
                     value={title}
                     name={'title'}
-                    placeholder="Income Title"
+                    placeholder="Назва доходу"
                     onChange={handleInput('title')}
                 />
             </div>
@@ -72,7 +72,7 @@ const IncomeForm: React.FC = () => {
                     value={amount}
                     type="text"
                     name={'amount'}
-                    placeholder={'Income Amount'}
+                    placeholder={'Сума доходу'}
                     onChange={handleInput('amount')}
                 />
             </div>
@@ -80,7 +80,7 @@ const IncomeForm: React.FC = () => {
                 <DatePicker
                     className='input-date'
                     id='date'
-                    placeholderText='Enter A Date'
+                    placeholderText='Введіть дату'
                     selected={date}
                     dateFormat="dd/MM/yyyy"
                     onChange={(date: Date | null) => {
@@ -90,22 +90,22 @@ const IncomeForm: React.FC = () => {
             </div>
             <div className={`${"selects"} ${"input-control"}`}>
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                    <option value="" disabled>Select Option</option>
-                    <option value="salary">Salary</option>
-                    <option value="freelancing">Freelancing</option>
-                    <option value="investments">Investments</option>
-                    <option value="stocks">Stocks</option>
-                    <option value="bitcoin">Bitcoin</option>
-                    <option value="bank">Bank Transfer</option>
-                    <option value="bank">Stipend</option>
-                    <option value="other">Other</option>
+                    <option value="" disabled>Виберіть опцію</option>
+                    <option value="salary">Заробітна плата</option>
+                    <option value="freelancing">Фріланс</option>
+                    <option value="investments">Інвестиції</option>
+                    <option value="stocks">Акції</option>
+                    <option value="bitcoin">Біткойн</option>
+                    <option value="bank">Банківський переказ</option>
+                    <option value="bank">Стипендія</option>
+                    <option value="other">Інше</option>
                 </select>
             </div>
             <div className="input-control">
                 <textarea
                     name="description"
                     value={description}
-                    placeholder='Add A Reference'
+                    placeholder='Додайте опис'
                     id="description"
                     cols={30}
                     rows={4}
@@ -114,7 +114,7 @@ const IncomeForm: React.FC = () => {
             </div>
             <div className="submitBtn">
                 <Button
-                    name={'Add Income'}
+                    name={'Додати дохід'}
                     icon={plus}
                     bPad={'.8rem 1.6rem'}
                     bRad={'30px'}

@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import { GlobalContext } from './context/globalContext';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
+import Categories from './components/Categories/Categories';
 
 function App() {
   const globalContext = useContext(GlobalContext);

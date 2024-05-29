@@ -6,4 +6,5 @@ export interface ISignFormProps {
     password: string;
     setPassword: Dispatch<SetStateAction<string>>;
     onLogin: () => Promise<void>;
+    error?: string | null;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { dateFormat } from '../../utils/dateFormat';
-import { bitcoin, book, calender, cardIcon, circle, clothing, comment, dollar, medical, money, piggy, takeaway, trash, tv, users, yt, stocks, freelance, food } from '../../utils/icons';
+import { bitcoin, book, calender, cardIcon, circle, clothing, comment, medical, money, piggy, takeaway, trash, tv, users, yt, stocks, freelance, food } from '../../utils/icons';
 import Button from '../Button/Button';
 import '../../styles/IncomeItem.scss';
 import { IIncomeItemProps } from '../../interfaces/IIncomeItemProps';
@@ -18,20 +18,6 @@ const Item: React.FC<IIncomeItemProps> = ({
     type, 
     createdAt
 }) => {
-
-    // const handleUpdate = () => {
-    //     const updatedExpense = {
-    //       _id,
-    //       title,
-    //       amount,
-    //       date,
-    //       category,
-    //       description,
-    //       type,
-    //       createdAt
-    //     };
-    //     updateExpense(_id, updatedExpense); // виклик функції оновлення
-    //   };
 
     const categoryIcon = () => {
         switch (category) {
@@ -90,7 +76,7 @@ const Item: React.FC<IIncomeItemProps> = ({
                 <h5 style={{ color: indicatorColor }}>{title}</h5>
                 <div className="inner-content">
                     <div className="text">
-                        <p>{dollar} {amount}</p>
+                        <p>₴ {amount}</p>
                         <p>{calender} {dateFormat(date)}</p>
                         <p>
                             {comment}
@@ -98,14 +84,6 @@ const Item: React.FC<IIncomeItemProps> = ({
                         </p>
                     </div>
                     <div className="btn-con">
-                    {/* <Button
-                            bPad={'1rem'}
-                            bRad={'50%'}
-                            bg={'var(--primary-color'}
-                            color={'#fff'}
-                            icon={trash}
-                            onClick={() => deleteItem(_id)} name={''} 
-                    /> */}
                     <Button
                             bPad={'1rem'}
                             bRad={'50%'}

@@ -105,16 +105,17 @@ export const GlobalProvider: React.FC<{ children: React.ReactNode }> = ({ childr
         }
     };
 
-    const loginUser = async (userData: { email: string; password: string }) => {
+    const loginUser = async (userData: { email: string; password: string }): Promise<boolean> => {
         try {
-            const response = await axios.post(`${BASE_URL}login`, userData);
-            setUser(response.data);
-            return true;
+          const response = await axios.post(`${BASE_URL}login`, userData);
+          setUser(response.data);
+          setError(null);  // Очищуємо помилку після успішного логіну
+          return true;
         } catch (err: any) {
-            setError(err.response.data.msg);
-            return false;
+          setError(err.response.data.msg || 'Невідома помилка');
+          return false;
         }
-    };
+      };
 
     const getUser = async () => {
         try {

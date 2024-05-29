@@ -9,7 +9,7 @@ const History: React.FC = () => {
 
     return (
         <div className="history">
-            <h2>Recent History</h2>
+            <h2>Недавня історія</h2>
             {history.map((item) => {
                 const { _id, title, amount, type } = item;
                 return (

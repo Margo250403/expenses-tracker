@@ -15,17 +15,17 @@ const Expenses: React.FC = () => {
   return (
     <div className="expense">
       <div className='inner-layout'>
-        <h1>Expenses</h1>
+        <h1>Витрати</h1>
         <h2 className="total-expense">
-          Total Expense: <span>${totalExpenses().toFixed(2)}</span>
+          Загальні витрати: <span>₴{totalExpenses().toFixed(2)}</span>
         </h2>
         <div className="expense-content">
           <div className="form-container">
             <ExpenseForm />
           </div>
           <div className="expenses">
-            {expenses.map((income) => {
-              const { _id, title, amount, date, category, description, type } = income;
+            {expenses.map((expense) => {
+              const { _id, title, amount, date, category, description, type } = expense;
               return (
                 <Item
                   key={_id}

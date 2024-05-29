@@ -47,20 +47,20 @@ const ExpensesForm: React.FC = () => {
                 description: '',
             });
         } else {
-            setError('Please select a date.');
+            setError('Оберіть дату');
         }
 
     };
 
     return (
         <form className="expense-form" onSubmit={handleSubmit}>
-            {error && <p className="error">{error}</p>}
+            {error && <p className="error-expense">{error}</p>}
             <div className="input-control">
                 <input
                     type="text"
                     value={title}
                     name={'title'}
-                    placeholder="Expense Title"
+                    placeholder="Назва витрати"
                     onChange={handleInput('title')}
                 />
             </div>
@@ -69,14 +69,14 @@ const ExpensesForm: React.FC = () => {
                     value={amount}
                     type="text"
                     name={'amount'}
-                    placeholder={'Expense Amount'}
+                    placeholder={'Сума витрати'}
                     onChange={handleInput('amount')}
                 />
             </div>
             <div className="input-control">
                 <DatePicker
                     id='date'
-                    placeholderText='Enter A Date'
+                    placeholderText='Введіть дату'
                     selected={date}
                     dateFormat="dd/MM/yyyy"
                     onChange={(date: Date | null) => {
@@ -86,22 +86,22 @@ const ExpensesForm: React.FC = () => {
             </div>
             <div className={`${"selects"} ${"input-control"}`}>
                 <select required value={category} name="category" id="category" onChange={handleInput('category')}>
-                    <option value="" disabled>Select Option</option>
-                    <option value="education">Education</option>
-                    <option value="groceries">Groceries</option>
-                    <option value="health">Health</option>
-                    <option value="subscriptions">Subscriptions</option>
-                    <option value="takeaways">Takeaways</option>
-                    <option value="clothing">Clothing</option>
-                    <option value="travelling">Travelling</option>
-                    <option value="other">Other</option>
+                    <option value="" disabled>Виберіть опцію</option>
+                    <option value="education">Навчання</option>
+                    <option value="groceries">Продукти</option>
+                    <option value="health">Здоров'я</option>
+                    <option value="subscriptions">Підписки</option>
+                    <option value="takeaways">Кафе та ресторани</option>
+                    <option value="clothing">Одяг</option>
+                    <option value="travelling">Подорожі</option>
+                    <option value="other">Інше</option>
                 </select>
             </div>
             <div className="input-control">
                 <textarea
                     name="description"
                     value={description}
-                    placeholder='Add A Reference'
+                    placeholder='Додайте опис'
                     id="description"
                     cols={30}
                     rows={4}
@@ -110,7 +110,7 @@ const ExpensesForm: React.FC = () => {
             </div>
             <div className="submitBtn">
                 <Button
-                    name={'Add Expense'}
+                    name={'Додати витрату'}
                     icon={plus}
                     bPad={'.8rem 1.6rem'}
                     bRad={'30px'}

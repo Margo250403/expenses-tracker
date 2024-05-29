@@ -15,9 +15,9 @@ const Income: React.FC = () => {
   return (
     <div className="income">
       <div className="inner-layout">
-        <h1>Incomes</h1>
+        <h1>Доходи</h1>
         <h2 className="total-income">
-          Total Income: <span>${totalIncome().toFixed(2)}</span>
+          Загальний дохід: <span>₴{totalIncome().toFixed(2)}</span>
         </h2>
         <div className="income-content">
           <div className="form-container">

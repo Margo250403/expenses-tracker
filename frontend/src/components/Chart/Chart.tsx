@@ -36,13 +36,13 @@ const Chart: React.FC = () => {
         }),
         datasets: [
             {
-                label: 'Income',
+                label: 'Дохід',
                 data: incomes.map((income) => income.amount),
                 backgroundColor: 'green',
                 tension: 0.2,
             },
             {
-                label: 'Expenses',
+                label: 'Витрати',
                 data: expenses.map((expense) => expense.amount),
                 backgroundColor: 'red',
                 tension: 0.2,

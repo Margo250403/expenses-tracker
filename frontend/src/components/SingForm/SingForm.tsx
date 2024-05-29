@@ -11,6 +11,7 @@ const SignInForm: FC<ISignFormProps> = ({
     password,
     setPassword,
     onLogin,
+    error
 }) => {
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -22,6 +23,7 @@ const SignInForm: FC<ISignFormProps> = ({
 
     return (
         <form action="#" className="form-box">
+                  {error && <p className="error">{error}</p>}
             <div className="input-box">
                 <label className="input-box__info" htmlFor="email">
                     Email
@@ -33,14 +35,14 @@ const SignInForm: FC<ISignFormProps> = ({
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="Enter your email"
+                    placeholder="Введіть свій email"
                     value={email}
                     onChange={handleEmailChange}
                 />
             </div>
             <div className="input-box">
                 <label className="input-box__info" htmlFor="password">
-                    Password
+                    Пароль
                 </label>
                 <label className="input-box__icon" htmlFor="password">
                     <img src={passwordImg} alt="password" />
@@ -49,14 +51,14 @@ const SignInForm: FC<ISignFormProps> = ({
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Enter your password"
+                    placeholder="Введіть свій пароль"
                     value={password}
                     onChange={handlePasswordChange}
                 />
             </div>
             <div className="btn-box">
                 <button type="button" onClick={onLogin}>
-                    Login
+                    Увійти
                 </button>
             </div>
         </form>

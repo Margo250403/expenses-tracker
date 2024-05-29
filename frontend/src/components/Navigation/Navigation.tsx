@@ -27,8 +27,8 @@ const Navigation: React.FC<INavigationProps> = ({ active, setActive }) => {
       <div className="user-con">
         <img src={avatar} alt="User Avatar" />
         <div className="text">
-        <h2>Marharyta</h2>
-          <p>Your Money</p>
+        <h2>Маргарита</h2>
+          <p>Твої гроші</p>
         </div>
       </div>
       <ul className="menu-items">
@@ -45,7 +45,7 @@ const Navigation: React.FC<INavigationProps> = ({ active, setActive }) => {
       </ul>
       <div className="bottom-nav">
         <li onClick={handleLogout}>
-          {signout} Sign Out
+          {signout} Вихід
         </li>
       </div>
     </nav>

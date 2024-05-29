@@ -6,6 +6,7 @@ import Navigation from '../components/Navigation/Navigation';
 import Dashboard from '../components/Dashboard/Dashboard';
 import Income from '../components/Income/Income';
 import Expenses from '../components/Expenses/Expenses';
+import Categories from '../components/Categories/Categories';
 
 const HomePage = () => {
 
@@ -15,7 +16,7 @@ const HomePage = () => {
       case 1:
         return <Dashboard />
       case 2:
-        return <Dashboard />
+        return <Categories />
       case 3:
         return <Income />
       case 4:
